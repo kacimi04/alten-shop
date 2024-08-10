@@ -1,0 +1,5 @@
+T_CATEGORY:
+  - ID: 1
+    LIBELLE: "category1"
+  - ID: 2
+    LIBELLE: "category2"

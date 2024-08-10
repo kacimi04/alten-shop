@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+	<changeSet author="kacimi" id="1">
+	 <!-- Create a sequence -->
+    <createSequence sequenceName="alten_shop_sequence" startValue="1034" incrementBy="1"/>
+    
+		<createTable tableName="T_PRODUCT">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints nullable="false" unique="true" />
+			</column>
+			<column name="CODE" type="varchar(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+			<column name="NAME" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="DESCRIPTION" type="varchar(900)">
+			</column>
+			<column name="IMAGE" type="varchar(500)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PRICE" type="double">
+				<constraints nullable="false" />
+			</column>
+			<column name="RATING" type="int">
+			</column>
+			<column name="QUANTITY" type="int">
+			<constraints nullable="false"/>
+			</column>
+			<column name="category_id" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="INVENTORY_STATUS" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<createTable tableName="T_CATEGORY">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints nullable="false" unique="true" />
+			</column>
+			<column name="LIBELLE" type="varchar(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+		</createTable>
+		<addPrimaryKey tableName="T_PRODUCT" columnNames="id"
+			constraintName="t_product_primary_key_constraint" />
+		<addPrimaryKey tableName="T_CATEGORY" columnNames="id"
+			constraintName="t_category_primary_key_constraint" />
+	<addForeignKeyConstraint constraintName="fk_product_category" referencedTableName="T_CATEGORY" baseColumnNames="category_id" baseTableName="T_PRODUCT" referencedColumnNames="id"/>
+	</changeSet>
+	
+	
+	
+	
+
+</databaseChangeLog>

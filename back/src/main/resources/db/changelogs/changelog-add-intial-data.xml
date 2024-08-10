@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+
+	<changeSet author="kacimi" id="2">
+		<insert tableName="T_CATEGORY">
+			<column name="id" value="1030"></column>
+			<column name="LIBELLE" value="Accessories"></column>
+		</insert>
+		<insert tableName="T_CATEGORY">
+			<column name="id" value="1031"></column>
+			<column name="LIBELLE" value="Fitness"></column>
+		</insert>
+		<insert tableName="T_CATEGORY">
+			<column name="id" value="1032"></column>
+			<column name="LIBELLE" value="Clothing"></column>
+		</insert>
+		<insert tableName="T_CATEGORY">
+			<column name="id" value="1033"></column>
+			<column name="LIBELLE" value="Electronics"></column>
+		</insert>
+	</changeSet>
+
+	<changeSet author="kacimi" id="3">
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1000"></column>
+			<column name="CODE" value="f230fh0g3"></column>
+			<column name="NAME" value="Bamboo Watch"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="bamboo-watch.jpg"></column>
+			<column name="PRICE" value="65"></column>
+			<column name="RATING" value="5"></column>
+			<column name="QUANTITY" value="24"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1001"></column>
+			<column name="CODE" value="nvklal433"></column>
+			<column name="NAME" value="Black Watch"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="black-watch.jpg"></column>
+			<column name="PRICE" value="72"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="61"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1002"></column>
+			<column name="CODE" value="zz21cz3c1"></column>
+			<column name="NAME" value="Blue Band"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="blue-band.jpg"></column>
+			<column name="PRICE" value="79"></column>
+			<column name="RATING" value="3"></column>
+			<column name="QUANTITY" value="2"></column>
+			<column name="category_id" value="1031"></column>
+			<column name="INVENTORY_STATUS" value="LOWSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1003"></column>
+			<column name="CODE" value="244wgerg2"></column>
+			<column name="NAME" value="Blue T-Shirt"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="blue-band.jpg"></column>
+			<column name="PRICE" value="29"></column>
+			<column name="RATING" value="5"></column>
+			<column name="QUANTITY" value="25"></column>
+			<column name="category_id" value="1032"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1004"></column>
+			<column name="CODE" value="h456wer53"></column>
+			<column name="NAME" value="Bracelet"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="bracelet.jpg"></column>
+			<column name="PRICE" value="15"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="73"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1005"></column>
+			<column name="CODE" value="av2231fwg"></column>
+			<column name="NAME" value="Brown Purse"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="brown-purse.jpg"></column>
+			<column name="PRICE" value="120"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="0"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="OUTOFSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1006"></column>
+			<column name="CODE" value="bib36pfvm"></column>
+			<column name="NAME" value="Chakra Bracelet"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="chakra-bracelet.jpg"></column>
+			<column name="PRICE" value="32"></column>
+			<column name="RATING" value="3"></column>
+			<column name="QUANTITY" value="5"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="LOWSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1007"></column>
+			<column name="CODE" value="mbvjkgip5"></column>
+			<column name="NAME" value="Galaxy Earrings"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="galaxy-earrings.jpg"></column>
+			<column name="PRICE" value="34"></column>
+			<column name="RATING" value="5"></column>
+			<column name="QUANTITY" value="23"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1008"></column>
+			<column name="CODE" value="vbb124btr"></column>
+			<column name="NAME" value="Game Controller"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="game-controller.jpg"></column>
+			<column name="PRICE" value="99"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="2"></column>
+			<column name="category_id" value="1033"></column>
+			<column name="INVENTORY_STATUS" value="LOWSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1009"></column>
+			<column name="CODE" value="cm230f032"></column>
+			<column name="NAME" value="Gaming Set"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="gaming-set.jpg"></column>
+			<column name="PRICE" value="299"></column>
+			<column name="RATING" value="3"></column>
+			<column name="QUANTITY" value="63"></column>
+			<column name="category_id" value="1033"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1010"></column>
+			<column name="CODE" value="plb34234v"></column>
+			<column name="NAME" value="Gold Phone Case"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="gold-phone-case.jpg"></column>
+			<column name="PRICE" value="24"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="0"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="OUTOFSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1011"></column>
+			<column name="CODE" value="4920nnc2d"></column>
+			<column name="NAME" value="Green Earbuds"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="green-earbuds.jpg"></column>
+			<column name="PRICE" value="89"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="23"></column>
+			<column name="category_id" value="1033"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1012"></column>
+			<column name="CODE" value="250vm23cc"></column>
+			<column name="NAME" value="Green T-Shirt"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="green-t-shirt.jpg"></column>
+			<column name="PRICE" value="49"></column>
+			<column name="RATING" value="5"></column>
+			<column name="QUANTITY" value="74"></column>
+			<column name="category_id" value="1032"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1013"></column>
+			<column name="CODE" value="fldsmn31b"></column>
+			<column name="NAME" value="Grey T-Shirt"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="grey-t-shirt.jpg"></column>
+			<column name="PRICE" value="48"></column>
+			<column name="RATING" value="3"></column>
+			<column name="QUANTITY" value="0"></column>
+			<column name="category_id" value="1032"></column>
+			<column name="INVENTORY_STATUS" value="OUTOFSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1014"></column>
+			<column name="CODE" value="waas1x2as"></column>
+			<column name="NAME" value="Headphones"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="headphones.jpg"></column>
+			<column name="PRICE" value="175"></column>
+			<column name="RATING" value="5"></column>
+			<column name="QUANTITY" value="8"></column>
+			<column name="category_id" value="1033"></column>
+			<column name="INVENTORY_STATUS" value="LOWSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1015"></column>
+			<column name="CODE" value="vb34btbg5"></column>
+			<column name="NAME" value="Light Green T-Shirt"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="light-green-t-shirt.jpg"></column>
+			<column name="PRICE" value="49"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="34"></column>
+			<column name="category_id" value="1032"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1016"></column>
+			<column name="CODE" value="k8l6j58jl"></column>
+			<column name="NAME" value="Lime Band"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="lime-band.jpg"></column>
+			<column name="PRICE" value="79"></column>
+			<column name="RATING" value="3"></column>
+			<column name="QUANTITY" value="12"></column>
+			<column name="category_id" value="1031"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1017"></column>
+			<column name="CODE" value="v435nn85n"></column>
+			<column name="NAME" value="Mini Speakers"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="mini-speakers.jpg"></column>
+			<column name="PRICE" value="85"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="42"></column>
+			<column name="category_id" value="1032"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1018"></column>
+			<column name="CODE" value="09zx9c0zc"></column>
+			<column name="NAME" value="Painted Phone Case"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="painted-phone-case.jpg"></column>
+			<column name="PRICE" value="56"></column>
+			<column name="RATING" value="5"></column>
+			<column name="QUANTITY" value="41"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1019"></column>
+			<column name="CODE" value="mnb5mb2m5"></column>
+			<column name="NAME" value="Pink Band"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="pink-band.jpg"></column>
+			<column name="PRICE" value="79"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="63"></column>
+			<column name="category_id" value="1031"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1020"></column>
+			<column name="CODE" value="r23fwf2w3"></column>
+			<column name="NAME" value="Pink Purse"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="pink-purse.jpg"></column>
+			<column name="PRICE" value="110"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="0"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="OUTOFSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1021"></column>
+			<column name="CODE" value="pxpzczo23"></column>
+			<column name="NAME" value="Purple Band"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="purple-band.jpg"></column>
+			<column name="PRICE" value="79"></column>
+			<column name="RATING" value="3"></column>
+			<column name="QUANTITY" value="5"></column>
+			<column name="category_id" value="1031"></column>
+			<column name="INVENTORY_STATUS" value="LOWSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1022"></column>
+			<column name="CODE" value="2c42cb5cb"></column>
+			<column name="NAME" value="Purple Gemstone Necklace"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="purple-gemstone-necklace.jpg"></column>
+			<column name="PRICE" value="45"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="62"></column>
+			<column name="category_id" value="1030"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1023"></column>
+			<column name="CODE" value="5k43kkk23"></column>
+			<column name="NAME" value="Purple T-Shirt"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="purple-t-shirt.jpg"></column>
+			<column name="PRICE" value="49"></column>
+			<column name="RATING" value="5"></column>
+			<column name="QUANTITY" value="2"></column>
+			<column name="category_id" value="1032"></column>
+			<column name="INVENTORY_STATUS" value="LOWSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1024"></column>
+			<column name="CODE" value="lm2tny2k4"></column>
+			<column name="NAME" value="Shoes"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="shoes.jpg"></column>
+			<column name="PRICE" value="64"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="0"></column>
+			<column name="category_id" value="1032"></column>
+			<column name="INVENTORY_STATUS" value="OUTOFSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1025"></column>
+			<column name="CODE" value="nbm5mv45n"></column>
+			<column name="NAME" value="Sneakers"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="sneakers.jpg"></column>
+			<column name="PRICE" value="78"></column>
+			<column name="RATING" value="4"></column>
+			<column name="QUANTITY" value="52"></column>
+			<column name="category_id" value="1032"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1026"></column>
+			<column name="CODE" value="zx23zc42c"></column>
+			<column name="NAME" value="Teal T-Shirt"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="teal-t-shirt.jpg"></column>
+			<column name="PRICE" value="49"></column>
+			<column name="RATING" value="3"></column>
+			<column name="QUANTITY" value="3"></column>
+			<column name="category_id" value="1032"></column>
+			<column name="INVENTORY_STATUS" value="LOWSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1027"></column>
+			<column name="CODE" value="acvx872gc"></column>
+			<column name="NAME" value="Yellow Earbuds"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="yellow-earbuds.jpg"></column>
+			<column name="PRICE" value="89"></column>
+			<column name="RATING" value="3"></column>
+			<column name="QUANTITY" value="35"></column>
+			<column name="category_id" value="1033"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1028"></column>
+			<column name="CODE" value="tx125ck42"></column>
+			<column name="NAME" value="Yoga Mat"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="yoga-mat.jpg"></column>
+			<column name="PRICE" value="20"></column>
+			<column name="RATING" value="5"></column>
+			<column name="QUANTITY" value="15"></column>
+			<column name="category_id" value="1031"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+		<insert tableName="T_PRODUCT">
+			<column name="id" value="1029"></column>
+			<column name="CODE" value="gwuby345v"></column>
+			<column name="NAME" value="Yoga Set"></column>
+			<column name="DESCRIPTION" value="Product Description"></column>
+			<column name="IMAGE" value="yoga-set.jpg"></column>
+			<column name="PRICE" value="20"></column>
+			<column name="RATING" value="8"></column>
+			<column name="QUANTITY" value="25"></column>
+			<column name="category_id" value="1031"></column>
+			<column name="INVENTORY_STATUS" value="INSTOCK"></column>
+		</insert>
+
+	</changeSet>
+
+</databaseChangeLog>
