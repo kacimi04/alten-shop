@@ -1,0 +1,25 @@
+services:
+  altenshop-back:
+    container_name: altenshop-back
+    image: altenshop
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.1-alpine
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  altenshop-front:
+    container_name: altenshop-front
+    image: altenshopfront
+    ports:
+      - "80:80"
+  
