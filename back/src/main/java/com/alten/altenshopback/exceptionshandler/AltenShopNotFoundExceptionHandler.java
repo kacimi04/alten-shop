@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
 import com.alten.altenshopback.errorsmodel.ErrorModel;
+import com.alten.altenshopback.exceptions.AltenShopBadRequestException;
 
 @RestControllerAdvice
 public class AltenShopNotFoundExceptionHandler {
 	
-	  @ExceptionHandler(value = {IllegalArgumentException.class})
-	  @ResponseStatus(value = HttpStatus.BAD_GATEWAY)
-	  public ErrorModel resourceNotFoundException(IllegalArgumentException ex, WebRequest request) {
+	  @ExceptionHandler(value = {AltenShopBadRequestException.class})
+	  @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+	  public ErrorModel resourceNotFoundException(AltenShopBadRequestException ex, WebRequest request) {
 	    return ErrorModel.builder()
 	    		.message(ex.getMessage())
 	    		.status(HttpStatus.BAD_REQUEST.toString())

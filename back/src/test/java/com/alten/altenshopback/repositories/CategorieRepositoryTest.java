@@ -7,11 +7,8 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
-
 import com.alten.altenshopback.models.Category;
 import com.github.database.rider.core.api.configuration.DBUnit;
 import com.github.database.rider.core.api.dataset.DataSet;
@@ -27,7 +24,7 @@ class CategorieRepositoryTest {
 	private CategorieRepository categorieRepository;
 	
 	@Test
-	@DataSet(value = "category.yml")
+	@DataSet(value = {"product.yml","category.yml"})
 	void findByLibelle(){
 		Optional<Category> categoryOptional= categorieRepository.findByLibelle("category1");
 		assertTrue(categoryOptional.isPresent());

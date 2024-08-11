@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.http.MediaType;
+
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -28,8 +30,9 @@ public class CorsConfig {
 			public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 					throws IOException, ServletException {
 				HttpServletResponse httpResponse = (HttpServletResponse) response;
-                httpResponse.setHeader("Access-Control-Allow-Origin", corsOrigins);  // Adjust as needed
-                httpResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+                httpResponse.setHeader("Access-Control-Allow-Origin", corsOrigins); 
+                httpResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,PATCH , OPTIONS");
+                httpResponse.setHeader("Access-Control-Allow-Headers", "Content-Type");
                 chain.doFilter(request, response);
 				
 			}

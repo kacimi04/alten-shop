@@ -19,11 +19,10 @@ public class ProductRequestDto {
 	@NotBlank
 	private String name;
 	private String description;
-	@NotBlank
 	private String image;
 	@NotNull
 	private Double price;
-	@NotBlank
+	@NotNull
 	private Integer quantity;
 	@NotBlank
 	private String category;

@@ -58,7 +58,7 @@ public class ProductService {
 		Product productEntity=productRepository.findById(id).orElseThrow(()->new AltenShopNotFoundException(String.format("No Product Found with Id %d", id)));
 		String code = patchDto.getCode()!=null ? patchDto.getCode():productEntity.getCode();
 		String name=patchDto.getName()!=null ? patchDto.getName():productEntity.getName();
-		String description=patchDto.getName()!=null? patchDto.getName():productEntity.getName();
+		String description=patchDto.getDescription()!=null? patchDto.getName():productEntity.getDescription();
 		Integer quantity=patchDto.getQuantity()!=null ? patchDto.getQuantity():productEntity.getQuantity();
 		String inventoryStatus=patchDto.getInventoryStatus()!=null ? patchDto.getInventoryStatus():productEntity.getInventoryStatus().value;
 		String categorie=patchDto.getCategory()!=null ? patchDto.getCategory(): productEntity.getCategory().getLibelle();

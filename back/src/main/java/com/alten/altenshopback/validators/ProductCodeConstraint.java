@@ -10,12 +10,12 @@ import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
 @Documented
-@Constraint(validatedBy = InventoryStatusValidator.class)
-@Target({ElementType.FIELD })
+@Constraint(validatedBy = ProductCodeValidator.class)
+@Target({ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface InventoryStatusConstraint {
+public @interface ProductCodeConstraint {
 	
-	String message() default "Invalid Inventory Status";
+	String message() default "Product With the Same Code existe";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 

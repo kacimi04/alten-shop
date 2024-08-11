@@ -1,0 +1,11 @@
+T_PRODUCT:
+  - ID: 1
+    code: "code"
+    name: "name"
+    description: "description"
+    image: null 
+    price: 20
+    rating: null
+    quantity: 3
+    category_id: 1
+    inventory_status: "INSTOCK"

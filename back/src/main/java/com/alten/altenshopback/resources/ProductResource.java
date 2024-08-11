@@ -13,7 +13,7 @@ import com.alten.altenshopback.dto.ProductPatchDto;
 import com.alten.altenshopback.dto.ProductRequestDto;
 import com.alten.altenshopback.dto.ProductResponseDto;
 import com.alten.altenshopback.services.ProductService;
-
+import com.alten.altenshopback.validators.ProductCodeConstraint;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import java.util.List;
@@ -30,7 +30,7 @@ public class ProductResource {
 	}
 	
 	@PostMapping("/products")
-	public ResponseEntity<ProductResponseDto> addNewProduct(@RequestBody(required = true) @Valid ProductRequestDto productDto) {
+	public ResponseEntity<ProductResponseDto> addNewProduct(@RequestBody(required = true) @Valid  @ProductCodeConstraint ProductRequestDto productDto) {
 		log.info("attempt to save new product");
 		return ResponseEntity
 				.ok()

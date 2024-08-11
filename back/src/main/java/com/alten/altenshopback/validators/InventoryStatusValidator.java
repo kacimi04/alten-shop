@@ -4,14 +4,18 @@ import com.alten.altenshopback.models.InventoryStatus;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-
-public class InventoryStatusValidators implements 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
+public class InventoryStatusValidator implements 
 ConstraintValidator<InventoryStatusConstraint, String>{
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		
-	   return InventoryStatus.valueOf(value)!=null;
+		 if( value!=null && value.length()> 0 &&  InventoryStatus.valueOf(value)!=null) {
+			return true;
+		}
+		 log.error(String.format("Inventory Status %s is not a valid status", value));
+	return false;
 	}
 
 }

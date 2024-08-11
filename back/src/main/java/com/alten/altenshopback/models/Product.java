@@ -32,7 +32,7 @@ public class Product {
 	private String name;
 	@Column(name = "DESCRIPTION", nullable = false)
 	private String description;
-	@Column(name = "IMAGE", nullable = false)
+	@Column(name = "IMAGE", nullable = true)
 	private String image;
 	@Column(name = "PRICE", nullable = false)
 	private Double price;
