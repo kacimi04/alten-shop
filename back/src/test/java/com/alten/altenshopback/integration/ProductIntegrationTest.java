@@ -1,5 +1,13 @@
 package com.alten.altenshopback.integration;
 
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -16,14 +24,6 @@ import com.github.database.rider.core.api.configuration.DBUnit;
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.junit5.api.DBRider;
 import com.google.gson.Gson;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
@@ -172,8 +172,20 @@ public class ProductIntegrationTest {
 	    .andExpect(jsonPath("$.category", is("category2"))); 
 			    
 	}
+	
+	
+	
 	@Test
-	void deleteProduct() {
-		
+	void deleteProductWhenNotFound() throws Exception {
+		mvc.perform(delete("/products/2").contentType(MediaType.APPLICATION_JSON)
+				).andExpect(status().isNotFound());
+			    
+	}
+	
+	@Test
+	void deleteProduct() throws Exception {
+		mvc.perform(delete("/products/1").contentType(MediaType.APPLICATION_JSON)
+				).andExpect(status().isOk());
+			    
 	}
 }
