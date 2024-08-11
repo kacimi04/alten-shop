@@ -1,8 +1,8 @@
 # build Back-end image
-run mvn clean compile install 
-copy target/alten-shop-back-0.0.1-SNAPSHOT.jar to depoly/backend
-upload deploy/backed folder to server using sftp client
-run docker build -t altenshop . to build backed image
+- run mvn clean compile install 
+- copy target/alten-shop-back-0.0.1-SNAPSHOT.jar to depoly/backend
+- upload deploy/backed folder to server using sftp client
+- run docker build -t altenshop . to build backed image
 # build front-end image
 run ng build --configuration production
 copy dist folder to deploy/frontend
