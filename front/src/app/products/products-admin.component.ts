@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product, ProductPayload } from './product.class';
 import {PRODUCT_TABLE_CONF} from './products-admin-table.conf';
 import { ProductsService } from './products.service';
-
-import { BehaviorSubject } from 'rxjs';
+import {MessageService} from '../../app/shared/utils/serverErrorSahringService'
+import { BehaviorSubject, Observable,Subject } from 'rxjs';
 
 import { BaseTableLoader } from 'app/shared/ui/table/base-table-loader.class';
 
@@ -19,9 +19,9 @@ export class ProductsAdminComponent extends BaseTableLoader implements OnInit {
   public payload$: BehaviorSubject<ProductPayload> = new BehaviorSubject<ProductPayload>({products:[],total:0});
   public conf: CrudItemOptions[] = PRODUCT_TABLE_CONF;
   public entity = Product;
-
+  private subject = new Subject();
   constructor(
-    private readonly productsService: ProductsService
+    private readonly productsService: ProductsService,private messageService:MessageService
   ) {
     super();
   }
@@ -46,7 +46,17 @@ export class ProductsAdminComponent extends BaseTableLoader implements OnInit {
   }
 
   private create(product: Product): void {
-    this.handleReload(this.productsService.create(product));
+    this.messageService.clearMessages();
+    this.productsService.create(product).subscribe({
+      next:(next=>{
+        console.log(next);
+        this.messageService.sendMessage("close");
+      }),
+      error:(err=>{
+        this.messageService.sendMessage(err.error.violations);
+      })
+    })
+    
   }
 
   private update(product: Product): void {

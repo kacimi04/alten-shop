@@ -10,7 +10,6 @@ export class ProductsService {
 
     private static productslist: Product[] = null;
     private products$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
-
     constructor(private http: HttpClient) { }
 
     getProducts(): Observable<Product[]> {
@@ -29,12 +28,8 @@ export class ProductsService {
         return this.products$;
     }
 
-    create(prod: Product): Observable<Product[]> {
-
-        ProductsService.productslist.push(prod);
-        this.products$.next(ProductsService.productslist);
-        
-        return this.products$;
+    create(prod: Product): Observable<Product> {
+       return  this.http.post<Product>(environment.apiBaseUrl+environment.apiVersion+'/products',prod);
     }
 
     update(prod: Product): Observable<Product[]>{

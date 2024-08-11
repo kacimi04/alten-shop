@@ -16,8 +16,13 @@ export class EditionDialogComponent<T> {
 
   @Output() hide: EventEmitter<void> = new EventEmitter();
   @Output() saved: EventEmitter<T> = new EventEmitter();
-
+  
+  
   public invalidForm: boolean = true;
+  
+  constructor(){
+    
+  }
   
   public onFormChanged(event: { value: T; valid?: boolean }): void {
     this.editedEntry = event.value;
@@ -26,6 +31,8 @@ export class EditionDialogComponent<T> {
 
   public onSave(): void {
     this.saved.emit(this.editedEntry);
+   
+ 
   }
 
   public onHide(): void {

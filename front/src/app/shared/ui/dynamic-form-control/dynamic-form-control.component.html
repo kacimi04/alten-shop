@@ -9,6 +9,7 @@
         <p-calendar *ngIf="controlConfig.type === 'date'" [formControl]="formCtrl"></p-calendar>
         <label [class.mandatory-control]="isRequired" [for]="controlConfig.key">{{ controlConfig.label }}</label>
       </span>
+      <span style="color: red;" >{{errMsg}}</span>
     </ng-container>
 
     <ng-container *ngSwitchCase="ControlType.DATE">
@@ -16,6 +17,7 @@
         <p-calendar [formControl]="formCtrl"></p-calendar>
         <label [class.mandatory-control]="isRequired" [for]="controlConfig.key">{{ controlConfig.label }}</label>
       </span>
+      <span style="color: red;" [innerHtml]="errMsg">{{errMsg}}</span>
     </ng-container>
 
     <ng-container *ngSwitchCase="ControlType.SELECT">
@@ -28,6 +30,7 @@
         optionLabel="label"
         optionValue="value">
       </p-dropdown>
+      <span style="color: red;" [innerHtml]="errMsg">{{errMsg}}</span>
     </ng-container>
 
     <ng-container *ngSwitchCase="ControlType.MULTISELECT">
@@ -40,6 +43,7 @@
         [formControl]="formCtrl"
         defaultLabel="Select a value">
     </p-multiSelect>
+    <span style="color: red;" [innerHtml]="errMsg">{{errMsg}}</span>
     </ng-container>
 
     <ng-container *ngSwitchCase="ControlType.AUTOCOMPLETE">
@@ -63,6 +67,7 @@
         </p-autoComplete>
         <label [for]="controlConfig.key" [class.mandatory-control]="isRequired">{{ controlConfig.label }}</label>
       </span>
+      <span style="color: red;" [innerHtml]="errMsg">{{errMsg}}</span>
     </ng-container>
 
     <ng-container *ngSwitchCase="ControlType.CHECKBOX">
@@ -80,6 +85,7 @@
               (formChanged)="updateChildControlValue($event)">
             </app-dynamic-form>
           </div>
+          <span style="color: red;" [innerHtml]="errMsg">{{errMsg}}</span>
         </div>
 
       </div>

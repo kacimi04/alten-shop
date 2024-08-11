@@ -4,6 +4,7 @@
       [controlConfig]="control"
       [formCtrl]="$any(form.get($any(control.key)))"
       [creation]="creation"
+      [errMsg]="control.errMsg"
       (tableControlClicked)="onTableDisplay($event)"
       (childControlChanged)="updateChildControlValue($event, control)"
       (valuePreset)="updateControl($event)">

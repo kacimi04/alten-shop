@@ -18,6 +18,7 @@ export class DynamicFormControlComponent<T> {
   @Input() controlConfig: CrudItemOptions;
   @Input() creation = false;
   @Input() formCtrl: FormControl;
+  @Input() errMsg:string;
   @Output() tableControlClicked: EventEmitter<CrudItemOptions> = new EventEmitter();
   @Output() childControlChanged: EventEmitter<T> = new EventEmitter();
   @Output() valuePreset: EventEmitter<{ ctrl: string; value: unknown }> = new EventEmitter();
@@ -26,6 +27,7 @@ export class DynamicFormControlComponent<T> {
 
   public autocompleteSuggestions$: Observable<SelectItem[]> = of([]);
   private autocompleteValidity$: Subject<void> = new Subject();
+
 
   get controlOptions(): ControlOptions {
     return this.controlConfig.controlOptions || {};
@@ -93,4 +95,5 @@ export class DynamicFormControlComponent<T> {
     const presetValue: {ctrl: string; value: unknown } = this.controlOptions.onSelect(event);
     this.valuePreset.emit(presetValue);
   }
+  
 }

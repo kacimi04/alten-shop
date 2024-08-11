@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { CrudItemOptions } from 'app/shared/utils/crud-item-options/crud-item-options.model';
 import { debounceTime } from 'rxjs/operators';
 import { DynamicFormService } from './dynamic-form.service';
-
+import {MessageService} from '../../utils/serverErrorSahringService';
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
@@ -21,6 +21,7 @@ export class DynamicFormComponent<T> implements OnInit {
 
   constructor(
     private readonly dynamicFormService: DynamicFormService,
+    private messageService:MessageService
   ) {
 
   }
@@ -42,6 +43,13 @@ export class DynamicFormComponent<T> implements OnInit {
       // Emit changes
       this.formChanged.emit({ value: formValue, valid: this.form.valid });
     });
+    this.messageService.getMessage()
+    .subscribe(violations=>{
+     this.handleServerError(violations);
+    })
+    
+  
+   
   }
 
   public updateControl(event: { ctrl: string; value: unknown }) {
@@ -69,4 +77,18 @@ export class DynamicFormComponent<T> implements OnInit {
       value: this.values[control.key]
     }));
   }
+  private handleServerError(violations:any){
+    this.controlsWithValues.forEach(item=>{
+      let index=this.controlsWithValues.findIndex(x=>x.key===item.key);
+      this.controlsWithValues[index].errMsg="";
+    })
+    console.log(violations)
+    if(violations.violations!=undefined && violations.violations!=null && violations.violations!="close"){
+    violations.violations.forEach(item=>{
+      let index=this.controlsWithValues.findIndex(x=>x.key===item.field);
+      this.controlsWithValues[index].errMsg=item.message;
+    })
+  }
+  }
+  
 }

@@ -25,4 +25,6 @@ export interface CrudItemOptions {
   controlOptions?: ControlOptions;
   /** Contains the value of the item */
   value?: any;
+
+  errMsg? : string;
 }

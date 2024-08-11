@@ -19,7 +19,8 @@ export const PRODUCT_TABLE_CONF: CrudItemOptions[] = [
       hideOnUpdate: false,
       disableOnCreate: true,
       disableOnUpdate: true
-    }
+    },
+    errMsg: ""
   },
   {
     key: 'code',
@@ -30,6 +31,7 @@ export const PRODUCT_TABLE_CONF: CrudItemOptions[] = [
       minScreenSize: ScreenWidth.small,
       default: true
     },
+    errMsg: ""
   },
   {
     key: 'name',
@@ -40,6 +42,7 @@ export const PRODUCT_TABLE_CONF: CrudItemOptions[] = [
       minScreenSize: ScreenWidth.small,
       default: true
     },
+    errMsg: ""
   },
   {
     key: 'description',
@@ -49,6 +52,7 @@ export const PRODUCT_TABLE_CONF: CrudItemOptions[] = [
     columnOptions: {
       minScreenSize: ScreenWidth.large,
     },
+    errMsg: ""
   },
   {
     key: 'category',
@@ -61,7 +65,8 @@ export const PRODUCT_TABLE_CONF: CrudItemOptions[] = [
 
     columnOptions: {
       minScreenSize: ScreenWidth.small,
-    }
+    },
+    errMsg: ""
   },
   {
     key: 'inventoryStatus',
@@ -72,7 +77,8 @@ export const PRODUCT_TABLE_CONF: CrudItemOptions[] = [
     {value: "OUTOFSTOCK",label: "OUTOFSTOCK"}],
     columnOptions: {
       minScreenSize: ScreenWidth.small,
-    }
+    },
+    errMsg: ""
   },
   {
     key: 'price',
@@ -82,6 +88,7 @@ export const PRODUCT_TABLE_CONF: CrudItemOptions[] = [
     columnOptions: {
       minScreenSize: ScreenWidth.small,
     },
+    errMsg: ""
   },
   {
     key: 'quantity',
@@ -92,7 +99,9 @@ export const PRODUCT_TABLE_CONF: CrudItemOptions[] = [
       minScreenSize: ScreenWidth.small,
     },
     controlOptions: {
-    }
+    },
+    errMsg: ""
+
   }
 
 ]; 

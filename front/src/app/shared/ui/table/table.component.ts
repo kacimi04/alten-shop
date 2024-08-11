@@ -7,6 +7,7 @@ import { LazyLoadEvent, SelectItem } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { TableColumn } from './table-column.model';
 import { ControlType } from 'app/shared/utils/crud-item-options/control-type.model';
+import {MessageService} from '../../utils/serverErrorSahringService';
 
 @Component({
   selector: 'app-table',
@@ -39,9 +40,12 @@ export class TableComponent<T> implements OnChanges {
   public editedEntry: T;
   public creation: boolean;
   public ControlType = ControlType;
+  
 
-  constructor() {}
-
+  constructor(private messageService:MessageService) {}
+  ngOnInit(){
+      
+     }
   ngOnChanges(changes: SimpleChanges): void {
     const { currentValue: config, previousValue: prevConfig } = changes.config ?? {};
     const configChanged = JSON.stringify(config) !== JSON.stringify(prevConfig);
@@ -92,9 +96,17 @@ export class TableComponent<T> implements OnChanges {
   }
 
   public onEditedEntrySave(editedEntry): void {
+    
     this.saved.emit(editedEntry);
-    this.editedEntry = null;
-    this.entryEditionDialogDisplayed = false;
+    this.messageService.getMessage()
+    .subscribe(mes=>{
+      console.log(mes)
+      if(mes.violations=="close"){
+        this.entryEditionDialogDisplayed=false;
+      }
+    });
+    
+  
   }
   
   public onDeleteEntry(id: number): void{
