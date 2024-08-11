@@ -30,7 +30,7 @@ public class ProductResource {
 	}
 	
 	@PostMapping("/products")
-	public ResponseEntity<ProductResponseDto> addNewProduct(@RequestBody(required = true) @Valid  @ProductCodeConstraint ProductRequestDto productDto) {
+	public ResponseEntity<ProductResponseDto> addNewProduct(@RequestBody(required = true) @Valid   ProductRequestDto productDto) {
 		log.info("attempt to save new product");
 		return ResponseEntity
 				.ok()

@@ -29,7 +29,7 @@
 			<column name="RATING" type="int">
 			</column>
 			<column name="QUANTITY" type="int">
-			<constraints nullable="false"/>
+			<constraints nullable="true"/>
 			</column>
 			<column name="category_id" type="int">
 				<constraints nullable="false" />

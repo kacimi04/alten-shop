@@ -38,7 +38,7 @@ public class Product {
 	private Double price;
 	@Column(name = "RATING")
 	private Integer rating;
-	@Column(name = "QUANTITY")
+	@Column(name = "QUANTITY",nullable = true)
 	private Integer quantity;
 	@OneToOne
 	private Category category;

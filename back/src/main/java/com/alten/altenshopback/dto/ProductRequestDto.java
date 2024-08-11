@@ -22,7 +22,7 @@ public class ProductRequestDto {
 	private String image;
 	@NotNull
 	private Double price;
-	@NotNull
+	//@NotNull
 	private Integer quantity;
 	@NotBlank
 	private String category;

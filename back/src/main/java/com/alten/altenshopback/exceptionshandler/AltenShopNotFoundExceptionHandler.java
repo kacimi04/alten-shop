@@ -15,6 +15,7 @@ public class AltenShopNotFoundExceptionHandler {
 	  @ExceptionHandler(value = {AltenShopBadRequestException.class})
 	  @ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	  public ErrorModel resourceNotFoundException(AltenShopBadRequestException ex, WebRequest request) {
+		  System.out.println("here");
 	    return ErrorModel.builder()
 	    		.message(ex.getMessage())
 	    		.status(HttpStatus.BAD_REQUEST.toString())
