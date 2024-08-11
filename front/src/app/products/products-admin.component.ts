@@ -4,7 +4,7 @@ import {PRODUCT_TABLE_CONF} from './products-admin-table.conf';
 import { ProductsService } from './products.service';
 import {MessageService} from '../../app/shared/utils/serverErrorSahringService'
 import { BehaviorSubject, Observable,Subject } from 'rxjs';
-
+import {Router} from '@angular/router';
 import { BaseTableLoader } from 'app/shared/ui/table/base-table-loader.class';
 
 import { CrudItemOptions } from 'app/shared/utils/crud-item-options/crud-item-options.model';
@@ -21,7 +21,8 @@ export class ProductsAdminComponent extends BaseTableLoader implements OnInit {
   public entity = Product;
   private subject = new Subject();
   constructor(
-    private readonly productsService: ProductsService,private messageService:MessageService
+    private readonly productsService: ProductsService,
+    private messageService:MessageService,private router:Router
   ) {
     super();
   }
@@ -49,8 +50,8 @@ export class ProductsAdminComponent extends BaseTableLoader implements OnInit {
     this.messageService.clearMessages();
     this.productsService.create(product).subscribe({
       next:(next=>{
-        console.log(next);
         this.messageService.sendMessage("close");
+       ProductsService.productslist.push(next);
       }),
       error:(err=>{
         this.messageService.sendMessage(err.error.violations);
@@ -60,7 +61,18 @@ export class ProductsAdminComponent extends BaseTableLoader implements OnInit {
   }
 
   private update(product: Product): void {
-    this.handleReload(this.productsService.update(product));
+    this.productsService.update(product)
+    .subscribe({ 
+      next:(next=>{
+      this.messageService.sendMessage("close");
+      let index=ProductsService.productslist.findIndex(x=>x.id===product.id);
+      ProductsService.productslist[index]=product;
+    }),
+    error:(err=>{
+      this.messageService.sendMessage(err.error.violations);
+    })
+  })
+    ;
   }
 
   private delete(id: number): void {
