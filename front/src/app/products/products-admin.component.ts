@@ -76,6 +76,18 @@ export class ProductsAdminComponent extends BaseTableLoader implements OnInit {
   }
 
   private delete(id: number): void {
-    this.handleReload(this.productsService.delete(id));
-  }
+    this.productsService.delete(id)
+    .subscribe(
+      { 
+        next:(next=>{
+        this.messageService.sendMessage("close");
+        let index=ProductsService.productslist.findIndex(x=>x.id===id);
+        ProductsService.productslist.splice(index,1);
+      }),
+      error:(err=>{
+        this.messageService.sendMessage(err.error.violations);
+      
+    })
+  });
+}
 }

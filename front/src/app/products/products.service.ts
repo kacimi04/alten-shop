@@ -37,9 +37,7 @@ export class ProductsService {
     }
 
 
-    delete(id: number): Observable<Product[]>{
-        ProductsService.productslist = ProductsService.productslist.filter(value => { return value.id !== id } );
-        this.products$.next(ProductsService.productslist);
-        return this.products$;
+    delete(id: number): Observable<void>{
+        return this.http.delete<void>(environment.apiBaseUrl+environment.apiVersion+'/products/'+id);
     }
 }
