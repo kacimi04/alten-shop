@@ -14,3 +14,4 @@
 - rund docker-compose up -d to run application
 # Important 
 - change the value allowed.cors.origins in application-dev.properties according to you server address ip
+- on first startup , make sur to connect to the database container remotly and create the database alten , so Back-end can start normally 
